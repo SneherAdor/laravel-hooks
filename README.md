@@ -1,6 +1,6 @@
 # Laravel Hooks
 
-The WordPress filter, action system in Laravel
+The WordPress filters, actions system in Laravel
 
 
 ## Installation
