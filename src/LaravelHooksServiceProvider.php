@@ -1,11 +1,11 @@
 <?php
 
-namespace Millat\LaraHooks;
+namespace Millat\LaravelHooks;
 
 use Illuminate\Support\ServiceProvider;
-use Millat\LaraHooks\Hooks;
+use Millat\LaravelHooks\Hooks;
 
-class LaraHooksServiceProvider extends ServiceProvider
+class LaravelHooksServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

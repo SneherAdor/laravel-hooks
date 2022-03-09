@@ -1,6 +1,6 @@
 <?php
 
-namespace Millat\LaraHooks;
+namespace Millat\LaravelHooks;
 
 /**
  * PHP Hooks Class

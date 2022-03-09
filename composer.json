@@ -1,5 +1,5 @@
 {
-  "name": "millat/larahooks",
+  "name": "millat/laravel-hooks",
   "description": "The WordPress filter, action system in Laravel",
   "keywords": [
         "laravel",
@@ -28,13 +28,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Millat\\LaraHooks\\": "src"
+            "Millat\\LaravelHooks\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Millat\\LaraHooks\\Test\\": "tests",
-            "Millat\\LaraHooks\\Test\\App\\": "tests/laravel/app"
+            "Millat\\LaravelHooks\\Test\\": "tests",
+            "Millat\\LaravelHooks\\Test\\App\\": "tests/laravel/app"
         }
     },
     "scripts": {
@@ -46,7 +46,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Millat\\LaraHooks\\LaraHooksServiceProvider"
+                "Millat\\LaravelHooks\\LaravelHooksServiceProvider"
             ]
         }
     }

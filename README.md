@@ -8,7 +8,7 @@ The WordPress filters, actions system in Laravel
 You can install the package via composer:
 
 ```bash
-composer require millat/larahooks
+composer require millat/laravel-hooks
 ```
 
 
