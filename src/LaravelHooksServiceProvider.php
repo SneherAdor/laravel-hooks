@@ -12,7 +12,7 @@ class LaravelHooksServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerDirectives();
+        //
     }
 
     /**
@@ -20,7 +20,7 @@ class LaravelHooksServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function registerDirectives()
+    public function register()
     {
         $this->app->singleton('hooks', function ($app) {
             return new Hooks();

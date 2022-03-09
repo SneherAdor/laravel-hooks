@@ -245,10 +245,6 @@ if (!class_exists('Hooks')){
     }
 
     /**
-     * ACTIONS
-     */
-
-    /**
      * Add a action for do_action
      *
      * @param string $tag
