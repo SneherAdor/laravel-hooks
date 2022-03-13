@@ -1,7 +1,6 @@
 <?php
 
-if (!function_exists('hook'))
-{
+if (!function_exists('hook')) {
     /**
      * instance of Hooks class
      *
