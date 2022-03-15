@@ -86,6 +86,78 @@ Filter hooks to allow modify various types of internal data at runtime.
 
 
 
+## Usage
+
+### Actions
+
+Wherever you want, you can create a new action in you Laravel application:
+
+```php
+do_action('user_created', $user);
+```
+Here, `user_created` is the name of the action, which will use later when the action will be listening. And `$user` is the parameters, which will be found whenever you listen the action. These can be anything.
+
+To listen to your actions, you attach listeners. These are best added to your `AppServiceProvider` `boot()` method.
+
+For example if you wanted to hook in to the above hook, you could do:
+
+```php
+add_action('user_created', function($user) {
+    $user->sendWelcomeMail();
+}, 20, 1);
+```
+
+The first argument must be the name of the action. The second would be a closures, callbacks and anonymous functions. The third specify the order in which the functions associated with a particular action are executed. Lower numbers correspond with earlier execution, and functions with the same priority are executed in the order in which they were added to the action. Default value: 10. And fourth, the number of arguments the function accepts. Default value: 1
+
+
+### Filters
+Filters always have to have data coming in and data going out to ensure the data is output in the browser (your content may be passed through other filters before getting output in the browser). By comparison, actions, which are similar to filters, do not require that anything to be returned, although data can be returned through actions as well.
+
+Basically, filters are functions that can be used in Laravel application to pass data through. They allows developers to modify the default behavior of a specific function.
+
+
+Here's an example of how filter used in a real application.
+
+`Post.php` is a model or class , where it builds a query to fetch all published posts
+
+```php
+class Post extend Model
+{
+    public function getPublished()
+    {
+        return Post::where('published_at', '>', now());
+    }
+}
+```
+
+Using filter we can make a offer to modify this query:
+
+```php
+class Post extend Model
+{
+    public function getPublished()
+    {
+        return apply_filters('posts_published', Post::where('published_at', '>', now());
+    }
+}
+```
+
+Now, in the entry point of application like any module or plugin's you can modify this post published query.
+
+In Module's or Plugin's service provider (preferably in the boot method) we'll add a listener for the filter.
+```php
+class ModuleServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        add_filter('posts_published', function($query) {
+            return $query->where('status', 'active');
+        });
+    }
+}
+```
+
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
