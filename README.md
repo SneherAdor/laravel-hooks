@@ -84,7 +84,26 @@ Filter hooks to allow modify various types of internal data at runtime.
 - `$accepted_args`
 *(int) (Optional) The number of arguments the function accepts. Default value: 1*
 
+**How to pass callback function?**
 
+> The callback function could be a string referring to a class in the application `MyNamespace\Http\Listener@myHookListener`, an array callback `[$object, 'method']` or a globally registered function `global_function`, anonymous function.
+
+Example using anonymous function:
+```php
+add_action('user_created', function($user) {
+    $user->sendWelcomeMail();
+}, 20, 1);
+```
+
+Example using referring to a class's method:
+```php
+add_action('user_created', 'MyNamespace\Http\MyClass@myMethod', 20, 1);
+```
+
+Example using array callback:
+```php
+add_action('user_created', [$object, 'myMethod'], 20, 1);
+```
 
 ## Usage
 
