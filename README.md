@@ -149,7 +149,7 @@ class Post extend Model
 }
 ```
 
-Using filter we can make a offer to modify this query:
+Using filter we can modify this query:
 
 ```php
 class Post extend Model
