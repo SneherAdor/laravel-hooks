@@ -3,6 +3,7 @@
 namespace Millat\LaravelHooks;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 use Millat\LaravelHooks\Hooks;
 
 class LaravelHooksServiceProvider extends ServiceProvider
@@ -12,7 +13,12 @@ class LaravelHooksServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Blade::directive('doAction', function ($expression) {
+            $expressions = explode(',', $expression);
+            $name = $expressions[0];
+            $arg = $expressions[1] ?? "''";
+            return "<?php echo do_action($name, $arg); ?>";
+        });
     }
 
     /**
