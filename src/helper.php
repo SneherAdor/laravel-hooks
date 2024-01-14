@@ -53,9 +53,9 @@ if (!function_exists('do_action')) {
      * @param mixed $arg
      * @return void
      */
-    function do_action($tag, $arg = '')
+    function do_action($tag, ...$arg)
     {
-        hook()->do_action($tag, $arg);
+        hook()->do_action($tag, ...$arg);
     }
 }
 
