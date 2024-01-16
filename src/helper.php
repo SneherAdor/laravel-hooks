@@ -38,9 +38,9 @@ if (!function_exists('apply_filters')) {
      * @param mixed $value
      * @return mixed
      */
-    function apply_filters($tag, $value)
+    function apply_filters($tag, ...$value)
     {
-        return hook()->apply_filters($tag, $value);
+        return hook()->apply_filters($tag, ...$value);
     }
 }
 
@@ -53,9 +53,9 @@ if (!function_exists('do_action')) {
      * @param mixed $arg
      * @return void
      */
-    function do_action($tag, $arg = '')
+    function do_action($tag, ...$arg)
     {
-        hook()->do_action($tag, $arg);
+        hook()->do_action($tag, ...$arg);
     }
 }
 
